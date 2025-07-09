@@ -5,7 +5,7 @@ echo ">>> ENTRYPOINT SCRIPT START <<<"
 cd /app
 
 if [ ! -f "manage.py" ]; then
-  django-admin startproject tistory .
+  django-admin startproject config .
 fi
 
 echo ">>> ENTRYPOINT SCRIPT END <<<"
