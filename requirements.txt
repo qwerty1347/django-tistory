@@ -1,0 +1,17 @@
+# -----------------------------
+# Django & REST Framework
+# -----------------------------
+Django==5.2.3               # High-level Python web framework for rapid development
+djangorestframework==3.15.0 # Toolkit for building Web APIs in Django
+
+# -----------------------------
+# Configuration & Timezone Handling
+# -----------------------------
+django-environ==0.11.2      # Manage Django settings using environment variables
+pytz==2025.2                # World timezone definitions for Python
+
+# -----------------------------
+# Database Drivers / ORMs
+# -----------------------------
+mysqlclient==2.2.7          # MySQL database connector for Python/Django
+mongoengine==0.29.1         # Object-Document Mapper (ODM) for MongoDB in Python

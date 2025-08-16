@@ -1,0 +1,8 @@
+__pycache__/
+db.sqlite3
+.env
+.env.backup
+.venv
+/.docker/mysql/data
+/.docker/mongo/data
+/.vscode

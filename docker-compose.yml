@@ -1,0 +1,46 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: django_tistory-mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./.docker/mysql/data:/var/lib/mysql
+      - ./.docker/mysql/my.cnf:/etc/mysql/mysql.conf.d/custom.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: django
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    networks:
+      - local_network
+
+  mongo:
+    image: mongo:latest
+    container_name: django_tistory-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    volumes:
+      - ./.docker/mongo/data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - local_network
+
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: django_tistory
+    volumes:
+      - ./:/app
+    ports:
+      - "9095:8000"
+    networks:
+      - local_network
+
+networks:
+  local_network:
+    driver: bridge
