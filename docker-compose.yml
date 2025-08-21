@@ -40,6 +40,9 @@ services:
       - "9095:8000"
     networks:
       - local_network
+    environment:
+      DB_HOST: django_tistory-mysql
+      MONGO_DB_HOST: django_tistory-mongodb
 
 networks:
   local_network:
