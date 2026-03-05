@@ -13,5 +13,6 @@ for module in pkgutil.iter_modules(__path__):
         )
         api_router.include_router(router_module.router)
 
-    except ModuleNotFoundError:
+    except ModuleNotFoundError as e:
+        print(f"{__name__}.{module.name} import 실패 {e}")
         continue
