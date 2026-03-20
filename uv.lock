@@ -169,7 +169,7 @@ requires-dist = [
     { name = "pydantic-settings", specifier = "==2.13.1" },
     { name = "pymysql", specifier = "==1.1.2" },
     { name = "pytest", specifier = "==9.0.2" },
-    { name = "pytest-asyncio" },
+    { name = "pytest-asyncio", specifier = "==1.3.0" },
     { name = "python-dotenv", specifier = "==1.2.1" },
     { name = "sqlalchemy", specifier = "==2.0.47" },
     { name = "uvicorn", extras = ["standard"], specifier = "==0.41.0" },

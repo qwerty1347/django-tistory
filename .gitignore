@@ -5,3 +5,4 @@ db.sqlite3
 /.docker/mysql/data
 /.docker/mongo/data
 /.vscode
+/storage/tistory/browser_context.json

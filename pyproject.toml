@@ -23,3 +23,5 @@ dependencies = [
 
 # Playwright 브라우저 엔진 추가 설치
 # uv run playwright install chromium
+# chromium 실행에 필요한 모든 리눅스 패키지 설치
+# uv run playwright install-deps
