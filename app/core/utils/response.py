@@ -19,7 +19,10 @@ def success_response(code: int = HTTPStatus.OK, data: dict | None = None) -> JSO
 
     return JSONResponse(
         status_code=code,
-        content={"code": str(code), "data": data}
+        content={
+            "code": str(code),
+            "data": data
+        }
     )
 
 
@@ -39,5 +42,8 @@ def error_response(code: int = HTTPStatus.INTERNAL_SERVER_ERROR, message: str | 
 
     return JSONResponse(
         status_code=code,
-        content={"code": str(code), "message": message}
+        content={
+            "code": str(code),
+            "message": message
+        }
     )
