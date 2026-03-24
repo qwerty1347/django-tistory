@@ -11,8 +11,8 @@ logger = logging.getLogger(__name__)
 
 class TistoryPostService:
     def __init__(self, tistory_browser_service: TistoryBrowserService, tistory_context: Path):
-        self.tistory_browser_service = tistory_browser_service
-        self.tistory_context = tistory_context
+        self.tistory_browser_service: TistoryBrowserService = tistory_browser_service
+        self.tistory_context: Path = tistory_context
 
 
     async def do_post(self):

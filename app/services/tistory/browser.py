@@ -1,10 +1,10 @@
-from playwright.async_api import Browser, BrowserContext, async_playwright
+from playwright.async_api import Browser, BrowserContext, Playwright, async_playwright
 
 
 class TistoryBrowserService:
     def __init__(self):
-        self.playwright = None
-        self.browser = None
+        self.playwright: Playwright | None = None
+        self.browser: Browser | None = None
 
 
     async def init_browser(self, headless=False):
