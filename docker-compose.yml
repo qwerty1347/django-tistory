@@ -1,14 +1,14 @@
 services:
   mysql:
-    image: mysql:8
-    container_name: django_tistory-mysql
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    image: mysql:8.0
+    container_name: fastapi_tistory-mysql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./.docker/mysql/data:/var/lib/mysql
       - ./.docker/mysql/my.cnf:/etc/mysql/mysql.conf.d/custom.cnf
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: django
+      MYSQL_DATABASE: fastapi
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
     ports:
@@ -18,7 +18,7 @@ services:
 
   mongo:
     image: mongo:latest
-    container_name: django_tistory-mongodb
+    container_name: fastapi_tistory-mongodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
@@ -33,16 +33,20 @@ services:
     build:
       context: .
       dockerfile: .docker/Dockerfile
-    container_name: django_tistory
+    container_name: fastapi_tistory
     volumes:
       - ./:/app
+      - venv_data:/app/.venv
     ports:
       - "9095:8000"
     networks:
       - local_network
     environment:
-      DB_HOST: django_tistory-mysql
-      MONGO_DB_HOST: django_tistory-mongodb
+      DB_HOST: fastapi_tistory-mysql
+      MONGO_DB_HOST: fastapi_tistory-mongodb
+
+volumes:
+    venv_data:
 
 networks:
   local_network:
